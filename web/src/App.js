@@ -2,17 +2,37 @@ import React from 'react';
 import './App.css';
 import { title, subtitle } from 'common/app.json';
 import commonStyles from 'common/styles';
+import useToDoState from 'common/state';
 
 function App() {
+  const { todos, addToDo, removeToDo, setTempTitle, tempTitle } = useToDoState();
+
   return (
-    <div className="App" style={{ flex: 1, backgroundColor: commonStyles.color.background }}  >
-      <p style={{ color: commonStyles.color.title, fontSize: commonStyles.textSize.title }} >
+    <div className="App" style={commonStyles.mainView}  >
+      <p style={commonStyles.title} >
         {title}
       </p>
-      <p style={{ color: commonStyles.color.subtitle, fontSize: commonStyles.textSize.subtitle }} >
+      <p style={commonStyles.subtitle} >
         {subtitle}
       </p>
+      <div style={commonStyles.inputContainer} >
+        <input value={tempTitle} onChange={(event) => { setTempTitle(event.target.value) }} />
+        <div onClick={() => { addToDo(); }} style={commonStyles.addButton} >
+          DODAJ
+       </div>
+      </div>
+      {todos.map(t =>
+        <div style={commonStyles.todo} >
+          <p>
+            Title: {t.title}
+          </p>
+          <div style={commonStyles.removeButton} onClick={() => { removeToDo(t.id) }} >
+            USUŃ
+          </div>
+        </div>
+      )}
     </div>
   );
-}
+};
+
 export default App;
