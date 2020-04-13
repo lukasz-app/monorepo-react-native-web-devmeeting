@@ -1,0 +1,20 @@
+{
+  "name": "devmeeting-monorepo",
+  "version": "0.0.1",
+  "private": true,
+  "workspaces": [
+    "mobile",
+    "web",
+    "common"
+  ],
+  "scripts": {
+    "android": "yarn workspace mobile android",
+    "ios": "yarn workspace mobile  ios",
+    "start:mobile": "yarn workspace mobile start",
+    "start:web": "yarn workspace web start"
+  },
+  "dependencies": {
+    "react-native": "0.62.2"
+  },
+  "devDependencies": {}
+}
