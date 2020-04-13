@@ -1,4 +1,4 @@
-import App from './App';
+import App from 'common/App';
 import * as serviceWorker from './serviceWorker';
 import { AppRegistry } from 'react-native'
 
