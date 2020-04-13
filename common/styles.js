@@ -10,7 +10,9 @@ const size = {
     normal: 16
 };
 const mainView = {
-    backgroundColor: color.background
+    backgroundColor: color.background,
+    flex: 1,
+    alignItems: "center"
 };
 const title = {
     color: color.title,

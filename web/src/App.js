@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import { title, subtitle } from 'common/app.json';
 import commonStyles from 'common/styles';
 import useToDoState from 'common/state';
@@ -8,7 +7,7 @@ function App() {
   const { todos, addToDo, removeToDo, setTempTitle, tempTitle } = useToDoState();
 
   return (
-    <div className="App" style={commonStyles.mainView}  >
+    <div style={commonStyles.mainView}  >
       <p style={commonStyles.title} >
         {title}
       </p>
