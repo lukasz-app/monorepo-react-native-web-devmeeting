@@ -36,7 +36,7 @@ const Main = ({ navigation }) => {
                         <TouchableOpacity
                             style={commonStyles.nmaviagateButton}
                             onPress={() => {
-                                navigation.navigate("Details");
+                                navigation.navigate("Details", { title: t.title });
                             }}>
                             <Text>Szczegoly</Text>
                         </TouchableOpacity>
