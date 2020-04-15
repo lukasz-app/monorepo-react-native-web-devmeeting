@@ -13,21 +13,15 @@ const Details = ({ navigation }) => {
         <SafeAreaView style={styles.mainContainer}>
             <View style={styles.appContainer}>
                 <View
-                    style={{ flexDirection: 'row', justifyContent: "space-between", backgroundColor: "white", alignSelf: 'stretch' }}
+                    style={styles.headerContainer}
                 >
-                    <TouchableOpacity
+                    <Text
                         onPress={() => {
-                            console.log("Herre")
-                            console.log({ ...navigation })
                             navigation.goBack();
                         }}
-                    >
-
-                        <Text style={styles.title}>{"Wróć"}</Text>
-                    </TouchableOpacity>
+                        style={styles.subtitle}>{"Wróć"}</Text>
                     <Text style={styles.title}>{"Ekran szczegóły"}</Text>
                 </View>
-
             </View>
         </SafeAreaView>
     );
@@ -48,20 +42,10 @@ const styles = StyleSheet.create({
     },
     subtitle: {
         ...commonStyles.subtitle,
-        marginTop: 10,
     },
-    inputContainer: {
-        ...commonStyles.inputContainer,
-        marginTop: 10,
-    },
-    textInput: {
-        backgroundColor: 'white',
-        flex: 1,
-    },
-    addButton: {
-        ...commonStyles.addButton,
-        // marginTop: 10,
-    },
+    headerContainer: {
+        flexDirection: 'row', justifyContent: "space-between", alignItems: 'flex-start',
+    }
 });
 
 export default Details;
