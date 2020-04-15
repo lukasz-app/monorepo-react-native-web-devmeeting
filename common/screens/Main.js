@@ -11,11 +11,12 @@ import { title, subtitle } from 'common/app.json';
 import commonStyles from 'common/themes/styles';
 import useToDoState from 'common/state/state';
 import NavigationBar from 'common/components/NavigationBar';
+import Modal from '../components/Modal';
 
 
 
 const Main = ({ navigation }) => {
-    const { todos, addToDo, removeToDo, setTempTitle, tempTitle } = useToDoState();
+    const { todos, addToDo, removeToDo, setTempTitle, tempTitle, modalVisible, setModalVisible } = useToDoState();
     return (
         <SafeAreaView style={styles.mainContainer}>
             <View style={styles.appContainer}>
@@ -52,6 +53,7 @@ const Main = ({ navigation }) => {
                 ))}
                 <NavigationBar currentRoute="Main" navigation={navigation} />
             </View>
+            <Modal isVisible={modalVisible} hide={() => { setModalVisible(false) }} />
         </SafeAreaView>
     );
 };
