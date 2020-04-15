@@ -6,9 +6,10 @@ let persistedState = [];
 const useToDoState = () => {
     const [todos, setState] = React.useState(persistedState);
     const [tempTitle, setTempTitle] = React.useState("")
+    const [modalVisible, setModalVisible] = React.useState(false)
     const addToDo = () => {
         if (tempTitle == "") {
-            alert("Title must not be empty!")
+            setModalVisible(true)
         } else {
             let newState =
                 [...todos, { title: tempTitle, id: new Date().getTime() }];
@@ -21,7 +22,7 @@ const useToDoState = () => {
         setState([...todos.filter((todo) => todo.id != id)])
     };
 
-    return { todos, addToDo, removeToDo, tempTitle, setTempTitle };
+    return { todos, addToDo, removeToDo, tempTitle, setTempTitle, modalVisible, setModalVisible };
 }
 
 export default useToDoState;
