@@ -44,6 +44,11 @@ const removeButton = {
     backgroundColor: "red",
     alignItems: "center", justifyContent: "center"
 };
+const nmaviagateButton = {
+    padding: 10,
+    backgroundColor: "yellow",
+    alignItems: "center", justifyContent: "center"
+};
 
 const styles = {
     mainView,
@@ -52,6 +57,7 @@ const styles = {
     inputContainer,
     todo,
     removeButton,
-    addButton
+    addButton,
+    nmaviagateButton
 }
 export default styles; 
