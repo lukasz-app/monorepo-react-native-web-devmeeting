@@ -10,6 +10,7 @@ import {
 import { title, subtitle } from 'common/app.json';
 import commonStyles from 'common/themes/styles';
 import useToDoState from 'common/state/state';
+import NavigationBar from 'common/components/NavigationBar';
 
 
 
@@ -49,6 +50,7 @@ const Main = ({ navigation }) => {
                         </TouchableOpacity>
                     </View>
                 ))}
+                <NavigationBar currentRoute="Main" navigation={navigation} />
             </View>
         </SafeAreaView>
     );
@@ -63,6 +65,8 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         padding: 16,
+        paddingTop: 70,
+
     },
     title: {
         ...commonStyles.title,
