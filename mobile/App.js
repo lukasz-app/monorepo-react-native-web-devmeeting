@@ -29,7 +29,7 @@ const App = () => {
           </TouchableOpacity>
         </View>
         {todos.map(t => (
-          <View style={commonStyles.todo}>
+          <View key={t.id} style={commonStyles.todo}>
             <Text>Title: {t.title}</Text>
             <TouchableOpacity
               style={commonStyles.removeButton}

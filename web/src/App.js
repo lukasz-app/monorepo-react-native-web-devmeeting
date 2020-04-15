@@ -22,7 +22,7 @@ function App() {
        </div>
       </div>
       {todos.map(t =>
-        <div style={commonStyles.todo} >
+        <div key={t.id} style={commonStyles.todo} >
           <p>
             Title: {t.title}
           </p>
