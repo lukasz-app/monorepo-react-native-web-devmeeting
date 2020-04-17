@@ -1,12 +1,15 @@
 import React from 'react';
-import { View, Dimensions, TouchableOpacity, Text, StyleSheet } from 'react-native'
+import { View, Dimensions, TouchableOpacity, Text, StyleSheet, Platform } from 'react-native'
 const borderWidth = 600;
 
 const NavigationBar = ({ navigation }) => {
     const [width, setWidth] = React.useState(Dimensions.get("window").width);
-    React.useEffect(() => {
-        Dimensions.addEventListener("change", handler);
-    }, []);
+
+    if (Platform.OS === 'web') {
+        React.useEffect(() => {
+            Dimensions.addEventListener("change", handler);
+        }, []);
+    }
 
     const handler = ({ window: { width } }) => { setWidth(width) };
     return (
