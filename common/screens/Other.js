@@ -4,28 +4,39 @@ import {
     View,
     Text,
     SafeAreaView,
-    Animated,
     Platform,
 } from 'react-native';
 import commonStyles from 'common/themes/styles';
 import NavigationBar from 'common/components/NavigationBar';
+import PlatformSpecificComponent from 'common/components/Proxy'
 
-const Other = ({ navigation }) => {
-    const platformName = Platform.select({ ios: 'iOS', android: 'Android', web: "Web" })
-    return (
-        <SafeAreaView style={styles.mainContainer}>
-            <View style={styles.appContainer}>
-                <Text style={[styles.text]} >
-                    {"Other"}
-                </Text >
-                <Text style={[styles.text]} >
-                    {platformName}
-                </Text >
-                <View />
-                <NavigationBar navigation={navigation} />
-            </View>
-        </SafeAreaView>
-    );
+class Other extends React.Component {
+    render() {
+        return (
+            <SafeAreaView style={styles.mainContainer}>
+                <View style={styles.appContainer}>
+                    <Text style={[styles.text]} >
+                        {"Other"}
+                    </Text >
+                    <View
+                        style={{ flexDirection: 'row', }}
+                    >
+                        <PlatformSpecificComponent
+                            ref={ref => { this.platformSpecificComponent = ref }}
+                            name={Platform.OS}
+                        />
+                        <Text
+                            onPress={() => { this.platformSpecificComponent.startAnimation() }}
+                            style={[styles.textAnimate]} >
+                            {'Animate'}
+                        </Text>
+                    </View>
+                    <View />
+                    <NavigationBar navigation={this.props.navigation} />
+                </View>
+            </SafeAreaView>
+        );
+    }
 };
 
 const styles = StyleSheet.create({
@@ -51,6 +62,9 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 40, fontWeight: '900', color: 'white', alignSelf: 'center',
+    },
+    textAnimate: {
+        fontSize: 20, color: 'white', alignSelf: 'center',
     }
 });
 
