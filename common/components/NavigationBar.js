@@ -11,7 +11,7 @@ const NavigationBar = ({ navigation }) => {
     const handler = ({ window: { width } }) => { setWidth(width) };
     return (
         <View
-            style={[style.container, width > borderWidth ? { top: 0 } : { bottom: 0 }, { width }]}
+            style={[style.container, width > borderWidth ? { top: 0 } : { bottom: 0 }]}
         >
             {
                 ["Main", "Details", "Other"].map(route => {
@@ -35,7 +35,7 @@ const NavigationBar = ({ navigation }) => {
 
 const style = StyleSheet.create({
     container: {
-        position: 'absolute', height: 40, backgroundColor: "white", flexDirection: 'row'
+        position: 'absolute', height: 40, backgroundColor: "white", flexDirection: 'row', left: 0, right: 0
     },
     buttonContainer:
         { borderWidth: 2, borderColor: 'red', flex: 1, justifyContent: "center", alignItems: 'center' }
