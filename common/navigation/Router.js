@@ -1,9 +1,9 @@
 import Main from '../screens/Main';
 import Details from '../screens/Details';
 import Other from '../screens/Other';
-import createPlatformNavigator from './createPlatformNavigator'
+import { createSwitchNavigator } from "@react-navigation/core";
 
-const Router = createPlatformNavigator({
+const Router = createSwitchNavigator({
     Main,
     Details,
     Other

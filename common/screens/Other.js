@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import commonStyles from 'common/themes/styles';
 import NavigationBar from 'common/components/NavigationBar';
-import PlatformSpecificComponent from 'common/components/Proxy'
+import PlatformSpecificComponent from 'common/components/PlatformSpecificComponent'
 
 class Other extends React.Component {
     render() {
