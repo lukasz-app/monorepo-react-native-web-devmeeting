@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import { title, subtitle } from 'common/app.json';
+import {StyleSheet, View, Text} from 'react-native';
+import {title, subtitle} from 'common/app.json';
 
 const App = () => {
   return (
